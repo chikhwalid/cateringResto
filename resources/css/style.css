@@ -1,0 +1,630 @@
+/*-------------------------------------------------*/
+/* Basic SETUP */
+/*-------------------------------------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background-color: white;
+  color: rgb(63, 63, 63);
+  font-family: "lato", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.hidden {
+  display: none;
+}
+.cleafix {
+  zoom: 1;
+}
+.cleafix:after {
+  /*clear the float after element*/
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+/*-------------------------------------------------*/
+/* Reusebal Component */
+/*-------------------------------------------------*/
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+section {
+  padding: 80px 0;
+}
+.box {
+  padding: 1%; /* yteba3 el padding ta3 section prsq c sont enseintre*/
+}
+
+/*------ Headings -------*/
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+  font-size: 240%;
+  word-spacing: 4px;
+  letter-spacing: 1px;
+}
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+h3 {
+  font-size: 110%;
+  margin-bottom: 20px;
+}
+h2:after {
+  display: block;
+  height: 2px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background-color: #cf6d17;
+  content: " "; /*TRES TRES TRES TRES IMPORTANT A MONTIONER !!!!!!!!!!!!!!!!!!!!!!*/
+}
+/*------ PARAGRAPHS -------*/
+.long-copy {
+  line-height: 145%;
+  width: 70%; /*pour transformer le paragraphe en ligne egaux*/
+  margin-left: 15%; /*au lieu de centrer le texte on met margine left qui prend 15% lf and rh*/
+  margin-bottom: 6%;
+}
+.box p {
+  font-size: 90%;
+  line-height: 145%;
+}
+/*------ Buttons -------*/
+
+.btn:link,
+.btn:visited {
+  /*the link look like in normal cas (blue !!) 
+    visited look like not normal cas magenta
+    so here we would to make them look like same think 
+    */
+  display: inline-block; /*afficher un inline element comme block element*/
+  padding: 10px 30px;
+  font-weight: 300;
+  text-decoration: none; /*pour éliminer le sous ligne*/
+  border-radius: 200px;
+  transition: background-color 0.2s, border 0.2s, color 0.2s; /*changement de couleur dans 0.2s*/
+}
+
+.btn-full:link,
+.btn-full:visited {
+  color: white;
+  background-color: rgba(230, 126, 34, 1);
+  border: 1px solid rgba(230, 126, 34, 1);
+  margin-right: 5px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+  color: rgba(230, 126, 34, 1);
+  border: 1px solid rgba(230, 126, 34, 1);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #cf6d17;
+}
+
+.btn-full:hover,
+.btn-full:active {
+  /* color: white; */
+  border: 1px solid #cf6d17;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  border: 1px solid #cf6d17;
+  color: white;
+}
+/*-------------------------------------------------*/
+/* Header */
+/*-------------------------------------------------*/
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.616), rgba(0, 0, 0, 0.616)),
+    url(img/hero.jpg);
+  background-position: center; /*Pour centré la photo*/
+  background-size: cover; /*Pour selecté toute la photo*/
+  height: 100vh;
+  background-attachment: fixed; /*pour fixer la photo dans l'arriere plan*/
+}
+.hero-text-box {
+  position: absolute;
+  width: 1140px;
+  top: 50%;
+  left: 50%;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* centré le contenu (half of width and height, to top and left )*/
+}
+
+.white-logo {
+  margin-top: 20px;
+  height: 80px; /*100px*/
+  width: auto;
+  float: left;
+}
+.black-logo {
+  display: none;
+}
+/*main navi*/
+.main-nav {
+  margin-top: 40px;
+  list-style: none; /* Pour se débarassé des point de <li/>*/
+  float: right;
+}
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+.main-nav li a:link,
+.main-nav li a:visited {
+  padding: 8px 0px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s; /*changement de couleur dans 0.2s*/
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid #cf6d17;
+}
+
+/* Mobile navi */
+.mobile-icon {
+  margin-top: 30px;
+  float: right;
+  cursor: pointer;
+  display: none;
+}
+.mobile-icon ion-icon {
+  font-size: 200%;
+  width: 30px;
+  color: white;
+}
+/* sticky navi*/
+.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.959);
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 2px rgb(197, 197, 197);
+  z-index: 9999; /*cad l'element avec la class stecky sera toujour en top de tout les autres éléments*/
+}
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited {
+  padding-bottom: 19px;
+  color: rgb(63, 63, 63);
+  /* text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 90%;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;  */
+}
+.sticky .black-logo {
+  display: block;
+  height: 50px;
+  width: auto;
+  float: left;
+  margin: 4px 0;
+}
+.sticky .white-logo {
+  display: none;
+}
+.sticky .main-nav {
+  margin-top: 15px;
+  list-style: none; /* Pour se débarassé des point de <li/>*/
+  float: right;
+}
+
+/*-------------------------------------------------*/
+/* FEAUTERS SECTION */
+/*-------------------------------------------------*/
+/*
+.row h2 {
+  text-align: center;
+}
+.row p {
+  float: left;
+}
+*/
+/* ------ ICONS ------ */
+.box ion-icon {
+  font-size: 300%;
+  margin: 0% 30% 20% 30%;
+  display: block;
+  color: #cf6d17;
+}
+/*-------------------------------------------------*/
+/* MEALS SECTION */
+/*-------------------------------------------------*/
+/* MEALS images*/
+.section-meals {
+  padding: 0;
+}
+.meals-showcase {
+  /*make photos in full page*/
+  width: 100%;
+}
+.meals-showcase li {
+  display: block;
+  float: left;
+  width: 25%; /*4 photos in one line cad 4*25 = 100%*/
+  list-style: none;
+}
+.meal-photo {
+  width: 100%;
+  overflow: hidden; /*cache swalah zaydin kima f l'image 115% tweli kbira 3la la page f width*/
+  background-color: black;
+}
+.meal-photo img {
+  opacity: 0.7;
+  width: 100%;
+  height: auto;
+  transform: scale(1.15); /*sera 115% plus grand*/
+  transition: transform 0.5s, opacity 0.5s;
+}
+.meal-photo img:hover {
+  transform: scale(
+    1.03
+  ); /*
+  1. trja3 la photo a son état inicial ki nhoto la souris 3liha
+  2. derna 1.03 li hiya 103% pour se débarassé m la line lbayda taht la photo apres le hover 3liha
+  */
+  opacity: 0.85;
+}
+/*-------------------------------------------------*/
+/* WORK STEPS */
+/*-------------------------------------------------*/
+.section-steps {
+  background-color: rgb(241, 239, 239);
+}
+.work-steps {
+  float: right;
+  margin-bottom: 40px;
+}
+.work-steps div {
+  display: block;
+  color: #cf6d17;
+  border: 2px solid #cf6d17;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  padding: 6px;
+  float: left;
+  margin-right: 5%;
+  font-size: 145%;
+}
+.work-steps p {
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+.app-iphone {
+  padding-left: 30%;
+  height: 85%;
+  width: 80%;
+}
+
+.btn-app {
+  height: 60px;
+  width: 172px;
+  margin-left: 10px;
+}
+.steps-box {
+  margin-top: 30px;
+}
+.steps {
+  margin-top: 6%;
+}
+/*-------------------------------------------------*/
+/* CITIES   */
+/*-------------------------------------------------*/
+.city-photo {
+  height: auto;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.icons {
+  display: inline-block;
+  color: #cf6d17;
+  float: left;
+  margin-right: 8px;
+  margin-left: 8px;
+  font-size: 23px;
+
+  /*secrets to align text and icons*/
+  line-height: 15px;
+  vertical-align: middle;
+  /* set negativ margine
+  margin : -1 0px */
+}
+
+.style-link {
+  color: #cf6d17;
+  text-decoration: none;
+  /*pour maitre un sous ligne*/
+  padding-bottom: 1px;
+  border-bottom: 1px solid #cf6d17;
+}
+.style-link:hover,
+.style-link :visited {
+  color: rgb(63, 63, 63);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+/* 
+HADA KHRIZ MIN JIT NERSAM SOUS-LIGNE
+.twitter:after {
+  display: block;
+  height: 2px;
+  width: 110px;
+  background-color: #cf6d17;
+  content: "";
+  margin-left: 45px;
+  margin-top: 2px;
+} */
+
+.box-city .icons,
+p {
+  margin-bottom: 5%;
+}
+
+/*-------------------------------------------------*/
+/* CUSTOMER REVIEWS*/
+/*-------------------------------------------------*/
+.section-customer-reviews {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.678)),
+    url("/resources/css/img/back-customers.jpg");
+  background-position: center; /*Pour centré la photo*/
+  background-size: cover; /*Pour selecté toute la photo*/
+  height: 100vh;
+  background-attachment: fixed;
+}
+.section-customer-reviews h2 {
+  color: white;
+  margin-bottom: 70px;
+}
+blockquote::before {
+  content: "\201C";
+  font-size: 400%;
+  display: block;
+  /* position: absolute; */
+}
+.section-customer-reviews blockquote {
+  color: white;
+  font-style: italic;
+  line-height: 145%;
+}
+.section-customer-reviews img {
+  margin-top: 30px;
+  height: 70px;
+  width: 70px;
+  border-radius: 80%;
+  float: left;
+}
+.section-customer-reviews cite {
+  font-size: 90%;
+  margin-top: 45px;
+  margin-left: 20px;
+  float: left;
+}
+
+/*-------------------------------------------------*/
+/* PLANS*/
+/*-------------------------------------------------*/
+.section-plans {
+  background-color: rgb(238, 238, 238);
+}
+.plan-box {
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  margin-left: 5%;
+  box-shadow: 0 2px 2px rgb(196, 191, 191); /*x y blur color*/
+}
+.plan-box li {
+  list-style: none;
+  line-height: 145%;
+  margin-bottom: 4px;
+}
+.plan-box div {
+  padding: 7%; /*15px*/
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+.plan-box div:first-child {
+  background-color: rgb(249, 249, 249);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.plan-box div:last-child {
+  /*pour centré le boutton <a>*/
+  text-align: center;
+  border: 0;
+}
+/* .plan-box .btn {
+  margin-top: 20px;
+  margin-left: 65px;
+} */
+.plan-box .icons {
+  float: none;
+}
+
+.price {
+  color: #cf6d17;
+  font-size: 300%;
+  font-weight: 100;
+}
+
+.price span {
+  font-size: 30%;
+  font-weight: 300;
+}
+/*-------------------------------------------------*/
+/* FORM*/
+/*-------------------------------------------------*/
+.contact-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+input[type="text"]:hover,
+input[type="text"]:active,
+input[type="email"]:hover,
+input[type="email"]:active,
+select:hover,
+select:active,
+textarea:hover,
+textarea:active {
+  border: 1px solid #cf6d17;
+  transition: border 0.2s;
+}
+
+input[type="submit"] {
+  display: inline-block;
+  color: white;
+  background-color: rgba(230, 126, 34, 1);
+  border: 1px solid rgba(230, 126, 34, 1);
+  padding: 10px 50px;
+  font-weight: 300;
+  border-radius: 200px;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background-color: #cf6d17;
+  border: 1px solid #cf6d17;
+}
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+/*pour éliminer la couleur dans la bordure*/
+/* 
+*:focus {
+  outline: none;
+} */
+
+/*-------------------------------------------------*/
+/* FOOTER*/
+/*-------------------------------------------------*/
+footer {
+  background-color: rgb(39, 39, 39);
+}
+/* footer .row {
+  margin-top: 10%;
+} */
+footer li {
+  float: left;
+  list-style: none;
+}
+footer ul {
+  margin-top: 5%;
+  float: left;
+}
+footer p {
+  margin-top: 10%;
+  text-align: center;
+  color: rgb(219, 219, 219);
+}
+footer a {
+  text-decoration: none;
+  color: rgb(219, 219, 219);
+  padding: 20px;
+}
+/* .footer-nav li a:first-child {
+  padding-left: 0;
+}
+.social-links li a::last-child {
+  padding-right: 0;
+} */
+.social-links {
+  float: right;
+}
+
+.footer-nav a:hover,
+.footer-nav a:active {
+  color: #cf6d17;
+  transition: color 0.2s;
+}
+.fb-color,
+.tw-color,
+.in-color,
+.gg-color {
+  transition: color 0.2s;
+  height: 25px;
+  width: 25px;
+}
+.fb-color:hover,
+.fb-color:active {
+  color: #3b5998;
+}
+.tw-color:hover,
+.tw-color:active {
+  color: #1da1f2;
+}
+.in-color:hover,
+.in-color:active {
+  color: #c32aa3;
+}
+.gg-color:hover,
+.gg-color:active {
+  color: #db4a39;
+}
+/*-------------------------------------------------*/
+/* ANIMATION */
+/*-------------------------------------------------*/
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+  opacity: 0;
+}
+
+.js--wp-1.animate__fadeIn,
+.js--wp-2.animate__fadeInUp,
+.js--wp-3.animate__fadeIn {
+  --animate-duration: 1s;
+  opacity: 1;
+}
